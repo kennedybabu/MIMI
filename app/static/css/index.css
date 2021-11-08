@@ -51,11 +51,7 @@ body {
     background-position: center;
     background-size: cover;
     min-height: 100vh;
-    width: 100vw;
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; */
+    width: 100vw;  
 }
 
 .create .navbar  a {
@@ -64,6 +60,10 @@ body {
 
 .navbar-brand {
     font-size: 3rem;
+}
+
+.navbar a {
+    font-weight: 600;
 }
 
 
@@ -76,6 +76,6 @@ body > div > div.over-lay > div > a {
 
 
 .image {
-    border-radius: 50;
+    border-radius: 50px;
 }
 
