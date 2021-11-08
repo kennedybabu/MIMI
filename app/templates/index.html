@@ -1,0 +1,23 @@
+<div class="intro">
+    <div class="over-lay">
+        <h2>life is more than a minute...</h2>
+        <div class="button-holder">
+            <a href="{{ url_for('main.create_pitch') }}">create pitch</a>
+            <a href="{{ url_for('main.show_pitch') }}">view pitches</a>
+        </div>
+    </div>
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+   <div class="container">
+    <h2>We are who we are</h2>
+   </div>
+{% endblock %}
+</div>
