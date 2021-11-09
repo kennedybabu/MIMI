@@ -14,6 +14,7 @@
         {% for pitch in pitches %}
           <div class="pitch-item tray">
               <h4>{{ pitch.pitch }}</h4>
+              <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
           </div>
         {% endfor %}
         {% endif %}

@@ -1,0 +1,29 @@
+<div class="intro">
+    {% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="container">      
+
+        <div class="col-md-4 tray">
+
+            {{ wtf.quick_form(comment_form) }}
+        </div>
+        <div>
+            {% for comment in comments %}
+            <div class="tray comment">
+                <h4>{{ comment.comment }}</h4>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
+</div>

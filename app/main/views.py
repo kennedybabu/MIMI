@@ -1,8 +1,8 @@
 from flask import render_template, redirect, url_for, abort, request
 from . import main
 from ..models import Pitch, Comment, User
-from .forms import PitchForm, UpdateProfile
-from flask_login import login_required
+from .forms import PitchForm, UpdateProfile, CommentForm
+from flask_login import login_required, current_user
 from .. import db, photos
 
 
@@ -95,6 +95,24 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile', uname = uname))
+
+
+@main.route('/comment/<pitch_id>', methods = ['GET', 'POST'])
+@login_required
+def comment(pitch_id):
+    '''
+    Will create a comment for an individual pitch
+    '''
+    pitches = Pitch.query.all()
+    comment_form = CommentForm()
+    comments = Comment.query.all()
+    if comment_form.validate_on_submit():
+        comment = Comment(comment = comment_form.comment.data, pitch_id = pitch_id,  user_id = current_user.id)
+        db.session.add(comment)
+        db.session.commit()
+
+        return redirect(url_for('main.comment', pitch_id = pitch_id))
+    return render_template('comment.html', comment_form = comment_form, comments = comments, pitches = pitches, pitch_id = pitch_id)
 
     
 
