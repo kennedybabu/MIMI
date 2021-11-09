@@ -38,16 +38,16 @@
   <div class="col-md-4">
     {% if user.profile_pic_path %}
 
-        <div class="image">
+        <!-- <div class="image">
             <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
-        </div>
+        </div> -->
     {%else%}
     <p>No profile picture</p>
 
     {% endif %}
 
         {% if user == current_user %}
-    <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+    <form  class="form-inline" action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
 
       <input type="file"  name="photo" class="form-control" required>
       <input type="submit">
