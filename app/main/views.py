@@ -47,10 +47,11 @@ def show_pitch():
     '''Function that will display all pitches
     '''
     interview_pitches = Pitch.query.filter_by(pitch_category = 'Interview').all()
-    promotion_pitches = Pitch.query.filter_by(pitch_category = 'promotion').all()
+    promotion_pitches = Pitch.query.filter_by(pitch_category = 'Promotion').all()
     pickup_lines = Pitch.query.filter_by(pitch_category = 'Pickup Lines').all()
     comedic_lines = Pitch.query.filter_by(pitch_category = 'Comedy').all()
     pitches = Pitch.query.all()
+    print(comedic_lines)
 
     title = 'mimi, all pitches'
     return render_template('pitch.html', pitches = pitches, title = title, interview_pitches = interview_pitches, promotion_pitches = promotion_pitches, pickup_lines = pickup_lines, comedic_lines = comedic_lines)

@@ -47,8 +47,8 @@
 
         <div class="tray">
           <h4>Pickup Pitches</h4>
-        {% if pickup_pitches %}
-        {% for pitch in pickup_pitches %}
+        {% if pickup_lines %}
+        {% for pitch in pickup_lines %}
           <div class="pitch-item tray">
               <h4>{{ pitch.pitch }}</h4>
               <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
@@ -66,8 +66,8 @@
 
         <div class="tray">
           <h4>comedy Pitches</h4>
-        {% if comedic_quips %}
-        {% for pitch in comedic_quips %}
+        {% if comedic_lines %}
+        {% for pitch in comedic_lines %}
           <div class="pitch-item tray">
               <h4>{{ pitch.pitch }}</h4>
               <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
