@@ -10,9 +10,13 @@
 
     {% block content %}
       <div class="container">
-        <div class="pitch-item tray">
-            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore rem a ratione!</h4>
-        </div>
+        {% if pitches %}
+        {% for pitch in pitches %}
+          <div class="pitch-item tray">
+              <h4>{{ pitch.pitch }}</h4>
+          </div>
+        {% endfor %}
+        {% endif %}
       </div>
 
     {% endblock %}

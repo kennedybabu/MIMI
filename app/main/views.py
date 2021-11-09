@@ -46,13 +46,15 @@ def create_pitch():
 def show_pitch():
     '''Function that will display all pitches
     '''
-    interview_pitches = Pitch.query.filter_by(pitch_category = 'interview').all()
+    interview_pitches = Pitch.query.filter_by(pitch_category = 'Interview').all()
     promotion_pitches = Pitch.query.filter_by(pitch_category = 'promotion').all()
-    pickup_lines = Pitch.query.filter_by(pitch_category = 'pickup').all()
-    comedic_quips = Pitch.query.filter_by(pitch_category = 'comedy').all()
+    pickup_lines = Pitch.query.filter_by(pitch_category = 'Pickup Lines').all()
+    comedic_quips = Pitch.query.filter_by(pitch_category = 'Comedy').all()
+    pitches = Pitch.query.all()
+    print(pitches)
 
     title = 'mimi, all pitches'
-    return render_template('pitch.html', title = title, interview_pitches = interview_pitches, promotion_pitches = promotion_pitches, pickup_lines = pickup_lines, comedic_quips = comedic_quips)
+    return render_template('pitch.html', pitches = pitches, title = title, interview_pitches = interview_pitches, promotion_pitches = promotion_pitches, pickup_lines = pickup_lines, comedic_quips = comedic_quips)
 
 @main.route('/user/<uname>')
 def profile(uname):
@@ -93,4 +95,6 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile', uname = uname))
+
+    
 
