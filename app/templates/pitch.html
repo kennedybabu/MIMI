@@ -10,14 +10,75 @@
 
     {% block content %}
       <div class="container">
-        {% if pitches %}
-        {% for pitch in pitches %}
+        <h4 class='text-center'>Interview Pitches</h4>
+        {% if interview_pitches %}
+        {% for pitch in interview_pitches %}
           <div class="pitch-item tray">
               <h4>{{ pitch.pitch }}</h4>
               <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
           </div>
         {% endfor %}
+        {% else %}
+        <div>
+            <h3>Sorry, there are no comments</h3>
+        </div>
         {% endif %}
+
+        <h4 class='text-center'>Promotion Pitches</h4>
+
+        <div class="tray">
+          <h4>Promotion Pitches</h4>
+        {% if promotion_pitches %}
+        {% for pitch in promotion_pitches %}
+          <div class="pitch-item tray">
+              <h4>{{ pitch.pitch }}</h4>
+              <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
+          </div>
+        {% endfor %}
+        {% else %}
+        <div>
+            <h5>Sorry, there are no Pitches...<a href="{{ url_for('main.create_pitch') }}">create pitch</a></h5>
+        </div>
+        {% endif %}
+        </div>
+
+
+        <h4 class='text-center'>Pickup Pitches</h4>
+
+        <div class="tray">
+          <h4>Pickup Pitches</h4>
+        {% if pickup_pitches %}
+        {% for pitch in pickup_pitches %}
+          <div class="pitch-item tray">
+              <h4>{{ pitch.pitch }}</h4>
+              <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
+          </div>
+        {% endfor %}
+        {% else %}
+        <div>
+            <h5>Sorry, there are no Pitches...<a href="{{ url_for('main.create_pitch') }}">create pitch</a></h5>
+        </div>
+        {% endif %}
+        </div>
+
+
+        <h4 class='text-center'>Comedy Pitches</h4>
+
+        <div class="tray">
+          <h4>comedy Pitches</h4>
+        {% if comedic_quips %}
+        {% for pitch in comedic_quips %}
+          <div class="pitch-item tray">
+              <h4>{{ pitch.pitch }}</h4>
+              <a href=" {{ url_for('main.comment', pitch_id = pitch.pitch_id) }}">comment</a>
+          </div>
+        {% endfor %}
+        {% else %}
+        <div>
+            <h5>Sorry, there are no Pitches...<a href="{{ url_for('main.create_pitch') }}">create pitch</a></h5>
+        </div>
+        {% endif %}
+        </div>
       </div>
 
     {% endblock %}

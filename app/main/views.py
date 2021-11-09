@@ -49,12 +49,11 @@ def show_pitch():
     interview_pitches = Pitch.query.filter_by(pitch_category = 'Interview').all()
     promotion_pitches = Pitch.query.filter_by(pitch_category = 'promotion').all()
     pickup_lines = Pitch.query.filter_by(pitch_category = 'Pickup Lines').all()
-    comedic_quips = Pitch.query.filter_by(pitch_category = 'Comedy').all()
+    comedic_lines = Pitch.query.filter_by(pitch_category = 'Comedy').all()
     pitches = Pitch.query.all()
-    print(pitches)
 
     title = 'mimi, all pitches'
-    return render_template('pitch.html', pitches = pitches, title = title, interview_pitches = interview_pitches, promotion_pitches = promotion_pitches, pickup_lines = pickup_lines, comedic_quips = comedic_quips)
+    return render_template('pitch.html', pitches = pitches, title = title, interview_pitches = interview_pitches, promotion_pitches = promotion_pitches, pickup_lines = pickup_lines, comedic_lines = comedic_lines)
 
 @main.route('/user/<uname>')
 def profile(uname):
