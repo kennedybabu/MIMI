@@ -10,6 +10,10 @@ mimi is an online platform for users to post and comment on pitches.
 - Bootstrap
 - Flask
 - SQLAlchemy database
+- figma
+
+## Design
+https://www.figma.com/file/2CViOpULGSyDg3C7MPlbmC/MIMI?node-id=0%3A1
 
 
 ##### Setup Instructions and Installation
